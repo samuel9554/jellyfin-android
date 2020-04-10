@@ -106,8 +106,6 @@ jobs:
       vmImage: 'ubuntu-latest'
 
     steps:
-    - checkout: none
-
     - script: 'echo "##vso[task.setvariable variable=TAG]$(git describe --tags)"'
       displayName: 'Set Tag Variable'
 
@@ -126,6 +124,7 @@ jobs:
         apkFiles: '$(System.ArtifactsDirectory)/*.apk'
         keystoreFile: keystore
         keystorePassword: $(KeyStorePassword)
+        keystoreAlias: ''
         zipalign: false
 
     - task: GithubRelease@0
