@@ -131,6 +131,8 @@ jobs:
         gitHubConnection: Jellyfin Release Download
         repositoryName: jellyfin/jellyfin-android
         assets: '$(System.ArtifactsDirectory)/*.apk'
+        action: edit
+        tag: '$(TAG)'
 
     - task: CopyFilesOverSSH@0
       inputs:
